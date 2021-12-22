@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             CustomSizedBox("LIVE MARKETS"),
-            ListBuilder(const Icon(Icons.home_filled, color: Colors.tealAccent),
+            ListBuilder(const Icon(Icons.home_filled, color: Colors.blueGrey),
                 "Dashboard", () {}),
             const Divider(
               thickness: 1,
@@ -152,16 +152,16 @@ class Choice {
 }
 
 const List<Choice> choices = <Choice>[
-  Choice(title: 'Home', icon: Icons.home),
-  Choice(title: 'Contact', icon: Icons.contacts),
-  Choice(title: 'Map', icon: Icons.map),
-  Choice(title: 'Phone', icon: Icons.phone),
-  Choice(title: 'Camera', icon: Icons.camera_alt),
-  Choice(title: 'Setting', icon: Icons.settings),
-  Choice(title: 'Album', icon: Icons.photo_album),
-  Choice(title: 'WiFi', icon: Icons.wifi),
-  Choice(title: 'Work', icon: Icons.wallet_travel),
-  Choice(title: 'Mega Offers', icon: Icons.wallet_giftcard),
+  Choice(title: 'News', icon: Icons.email),
+  Choice(title: 'Market', icon: Icons.show_chart),
+  Choice(title: 'Today Price', icon: Icons.signal_cellular_0_bar),
+  Choice(title: 'Porfolio', icon: Icons.chat_rounded),
+  Choice(title: 'Calculator', icon: Icons.smartphone_outlined),
+  Choice(title: 'Letter', icon: Icons.new_label_sharp),
+  Choice(title: 'Data', icon: Icons.data_usage),
+  Choice(title: 'Sms Alert', icon: Icons.alarm),
+  Choice(title: 'New Share', icon: Icons.new_releases),
+  Choice(title: 'Offers', icon: Icons.wallet_giftcard),
 ];
 
 class SelectCard extends StatelessWidget {
@@ -171,7 +171,7 @@ class SelectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        color: const Color(0xFF424242),
+        color: const Color(0xFF424251),
         child:  InkWell(
           child: Center(child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
