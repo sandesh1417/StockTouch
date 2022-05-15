@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Stock Touch',
       theme: ThemeData(
-        canvasColor: Colors.teal[700],
+        canvasColor: Colors.white,
         primarySwatch: Colors.blueGrey,
       ),
       home: const HomeScreen(),

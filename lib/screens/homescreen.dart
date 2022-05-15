@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:stockapp/screens/announcement.dart';
 import 'package:stockapp/screens/newscreen.dart';
 import 'package:stockapp/utilities/const.dart';
-import 'package:stockapp/webscrap/webscrap.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -129,18 +128,22 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: GridView.count(
-                crossAxisCount: 3,
-                crossAxisSpacing: 4.0,
-                mainAxisSpacing: 8.0,
-                children: List.generate(choices.length, (index) {
-                  return Container(
-                    margin: EdgeInsets.all(7),
-                    child: SelectCard(choice: choices[index], key: null,),
-                  );
-                }
-                )
-            ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.count(
+            crossAxisCount: 3,
+            crossAxisSpacing: 4.0,
+            mainAxisSpacing: 8.0,
+            children: List.generate(choices.length, (index) {
+              return Container(
+                margin: const EdgeInsets.all(7),
+                child: SelectCard(
+                  choice: choices[index],
+                  key: null,
+                ),
+              );
+            })),
+      ),
     );
   }
 }
@@ -154,7 +157,7 @@ class Choice {
 const List<Choice> choices = <Choice>[
   Choice(title: 'News', icon: Icons.email),
   Choice(title: 'Market', icon: Icons.show_chart),
-  Choice(title: 'Today Price', icon: Icons.signal_cellular_0_bar),
+  Choice(title: 'Price', icon: Icons.signal_cellular_0_bar),
   Choice(title: 'Porfolio', icon: Icons.chat_rounded),
   Choice(title: 'Calculator', icon: Icons.smartphone_outlined),
   Choice(title: 'Letter', icon: Icons.new_label_sharp),
@@ -165,28 +168,33 @@ const List<Choice> choices = <Choice>[
 ];
 
 class SelectCard extends StatelessWidget {
-  const SelectCard({ key, required this.choice}) : super(key: key);
+  const SelectCard({key, required this.choice}) : super(key: key);
   final Choice choice;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-        color: const Color(0xFF424251),
-        child:  InkWell(
-          child: Center(child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Expanded(child: Icon(choice.icon, size:50.0)),
-                Text(choice.title, style: const TextStyle(fontSize: 20)),
-                const SizedBox(height: 10,)
-              ]
-          ),
+        color: const Color.fromARGB(255, 180, 233, 228),
+        child: InkWell(
+          child: Center(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(child: Icon(choice.icon, size: 50.0)),
+                  Padding(
+                    padding: const EdgeInsets.all(1.0),
+                    child: Text(choice.title,
+                        style: const TextStyle(fontSize: 20)),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  )
+                ]),
           ),
           onTap: () {
             debugPrint('clicked : ${choice.title}');
           },
-        )
-    );
+        ));
   }
 }
 
